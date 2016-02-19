@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1168135233
+    locked: 0
+  - name: Gem
+    uniqueID: 2696876677
+    locked: 0
+  - name: Enemy
+    uniqueID: 570882955
+    locked: 0
+  - name: Monkey
+    uniqueID: 1082720919
+    locked: 0
