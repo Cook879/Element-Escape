@@ -15,12 +15,7 @@ public class SpaceflierController : MonoBehaviour {
 	void Update () {
 	
 	}
-	void OnBecameInvisible(){
-		if (Camera.main == null)
-			return;
-		float yMax = Camera.main.orthographicSize - 0.5f;
-		transform.position = new Vector3( spawnPoint.position.x, 
-										Random.Range(-yMax, yMax), 
-										transform.position.z );
+	void OnBecameInvisible() {
+	  Destroy( gameObject ); 
 	}
 }

@@ -6,9 +6,12 @@ public class MonkeyController : MonoBehaviour {
 	public float moveSpeed;
 	private Vector3 moveDirection;
 	public float turnSpeed;
+	private Rect textArea; 
+	private bool gameOver;
 	// Use this for initialization
 	void Start () {
 		moveDirection = Vector3.right;
+		textArea = new Rect(0,0,Screen.width, Screen.height);
 	}
 	
 	// Update is called once per frame
@@ -35,9 +38,23 @@ public class MonkeyController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D( Collider2D other ) {
-		Debug.Log ("Hit " + other.gameObject);
+		if(other.CompareTag("Spaceflier")) {
+			gameOver = true;
+			GetComponent<Animator>().SetBool("MonkeyHit", true);
+			StartCoroutine(RestartLevel());
+		 }
+		 
+		 
 	}
-
+	void OnGUI() { 
+		if (gameOver) {
+			GUI.Label(textArea,"GAME OVER");
+		}
+	}
+	IEnumerator RestartLevel() {
+	     yield return new WaitForSeconds(1f);
+	     Application.LoadLevel(Application.loadedLevel);
+	 }
 	private void EnforceBounds() {
 		Vector3 newPosition = transform.position; 
 		Camera mainCamera = Camera.main;
