@@ -21,4 +21,8 @@ public class BackgroundRepeater : MonoBehaviour {
 		  transform.position = newPos;
 		}
 	}
+
+	void OnBecameInvisible() {
+		Destroy( gameObject ); 
+	}
 }
