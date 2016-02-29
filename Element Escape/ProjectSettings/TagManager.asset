@@ -7,6 +7,10 @@ TagManager:
   - Gem
   - Spaceflier
   - Monkey
+  - BlueScoredGem
+  - GreenScoredGem
+  - YellowScoredGem
+  - GreyScoredGem
   layers:
   - Default
   - TransparentFX
@@ -55,4 +59,7 @@ TagManager:
     locked: 0
   - name: Monkey
     uniqueID: 1082720919
+    locked: 0
+  - name: ScoredGems
+    uniqueID: 2640358965
     locked: 0

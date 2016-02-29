@@ -5,6 +5,7 @@ public class BackgroundCreator: MonoBehaviour {
 	public float backgroundTime;
 	public GameObject backgroundPrefab;
 	private bool firstTime = true;
+	private int i = 2;
 
 	void Start () {
 		Invoke("SpawnBackground",0);
@@ -19,11 +20,14 @@ public class BackgroundCreator: MonoBehaviour {
 		float yMax = camera.orthographicSize - 0.5f;
 
 		float xVar;
-		if (firstTime) {
-			xVar = cameraPos.x;
-		} else {
-			xVar = cameraPos.x + xMax;
-		}
+		//if (firstTime) {
+		//	xVar = cameraPos.x;
+		//	firstTime = false;
+		//	Invoke ("SpawnBackground", 0);
+		//} else {
+			xVar = i * backgroundPrefab.GetComponent<Renderer>().bounds.size.x;
+			i++;
+		//}
 		Vector3 backgroundPos = 
 			new Vector3(xVar,
 				0,

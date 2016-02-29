@@ -23,7 +23,7 @@ public class SpaceflierCreator: MonoBehaviour {
      
     // 2
     Vector3 catPos = 
-      new Vector3(cameraPos.x + xMax,
+      new Vector3(cameraPos.x + xMax + 10,
                   Random.Range(-yMax, yMax),
                   catPrefab.transform.position.z);
      

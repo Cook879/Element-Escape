@@ -7,7 +7,10 @@ public class MonkeyController : MonoBehaviour {
 	private Vector3 moveDirection;
 	public float turnSpeed;
 	private Rect textArea; 
-	private bool gameOver;
+	public bool gameOver;
+
+	public bool[] gemsCollected = new bool[4];
+
 	// Use this for initialization
 	void Start () {
 		moveDirection = Vector3.right;
@@ -38,23 +41,28 @@ public class MonkeyController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D( Collider2D other ) {
-		if(other.CompareTag("Spaceflier")) {
+		if (other.CompareTag("Spaceflier")) {
 			gameOver = true;
-			GetComponent<Animator>().SetBool("MonkeyHit", true);
-			StartCoroutine(RestartLevel());
-		 }
-		 
-		 
+			GetComponent<Animator> ().SetBool ("MonkeyHit", true);
+			StartCoroutine (RestartLevel ());
+		}  
 	}
 	void OnGUI() { 
 		if (gameOver) {
-			GUI.Label(textArea,"GAME OVER");
+			GUI.Label (textArea, "GAME OVER");
+		} else if (gemsCollected[0] && gemsCollected[1] && gemsCollected[2] && gemsCollected[3] ) {
+			GUI.Label (textArea, "WINNER");
+			StartCoroutine (NextLevel());
 		}
 	}
 	IEnumerator RestartLevel() {
 	     yield return new WaitForSeconds(1f);
 	     Application.LoadLevel(Application.loadedLevel);
-	 }
+	}
+	IEnumerator NextLevel() {
+		yield return new WaitForSeconds(1f);
+		Application.LoadLevel(Application.loadedLevel);
+	}
 	private void EnforceBounds() {
 		Vector3 newPosition = transform.position; 
 		Camera mainCamera = Camera.main;
@@ -77,6 +85,10 @@ public class MonkeyController : MonoBehaviour {
 		}
 
 		transform.position = newPosition;
+	}
+
+	public void addGem(int colour) {
+		gemsCollected [colour] = true;
 	}
 
 }

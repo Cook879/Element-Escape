@@ -32,5 +32,6 @@ public class GemCreator: MonoBehaviour {
      
     GameObject gem = Instantiate(prefabs[index], pos, Quaternion.identity) as GameObject;
     gem.GetComponent<GemController>().setGemCreator(this);
+	gem.GetComponent<GemController>().colour = index;
   }
 }

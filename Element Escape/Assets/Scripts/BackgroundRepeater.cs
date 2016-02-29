@@ -15,11 +15,11 @@ public class BackgroundRepeater : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if( (transform.position.x + spriteWidth) < cameraTransform.position.x) {
-		  Vector3 newPos = transform.position;
-		  newPos.x += 2.0f * spriteWidth; 
-		  transform.position = newPos;
-		}
+		//if( (transform.position.x + spriteWidth) < cameraTransform.position.x) {
+		//  Vector3 newPos = transform.position;
+		//  newPos.x += 2.0f * spriteWidth; 
+		//  transform.position = newPos;
+		//}
 	}
 
 	void OnBecameInvisible() {
