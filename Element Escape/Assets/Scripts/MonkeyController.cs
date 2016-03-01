@@ -13,9 +13,6 @@ public class MonkeyController : MonoBehaviour {
 	// Space monkey's movement vector
 	private Vector3 moveDirection;
 
-	// Display for game over / winner messages
-	private Rect textArea; 
-
 	// Wheter the game is over or not
 	public bool gameOver = false;
 
@@ -25,7 +22,6 @@ public class MonkeyController : MonoBehaviour {
 	// Initilize private variables
 	void Start () {
 		moveDirection = Vector3.right;
-		textArea = new Rect(0,0,Screen.width, Screen.height);
 	}
 	
 	// Update is called once per frame
@@ -74,23 +70,31 @@ public class MonkeyController : MonoBehaviour {
 	// Used to tell the user they have won or lost
 	void OnGUI() { 
 		if (gameOver) {
+			// Show the lose screen
+			GameObject youlose = GameObject.FindGameObjectWithTag ("lose");
+			youlose.transform.localScale = new Vector3 (2.0F, 2.0F, 2.0F);
+			// Restart the level after a timer
 			StartCoroutine (RestartLevel());
 		} else if (gemsCollected[0] && gemsCollected[1] && gemsCollected[2] && gemsCollected[3] ) {
-			GUI.Label (textArea, "WINNER");
+			// Show the win screen
+			GameObject youwin = GameObject.FindGameObjectWithTag ("win");
+			youwin.transform.localScale = new Vector3 (2.0F, 2.0F, 2.0F);
+			// Restart the level after a timer
 			StartCoroutine (NextLevel());
 		}
 	}
 
 	// Restarts the level after one second
 	IEnumerator RestartLevel() {
-	     yield return new WaitForSeconds(1f);
+	     yield return new WaitForSeconds(2f);
 	     Application.LoadLevel(Application.loadedLevel);
 	}
 
 	// Changes level after one second
 	IEnumerator NextLevel() {
 		yield return new WaitForSeconds(1f);
-		Application.LoadLevel(Application.loadedLevel);
+		// Whether in the tutorial or not, we want to reload level 1
+		Application.LoadLevel("Level1");
 	}
 
 	// Ensures that the player stays on screen

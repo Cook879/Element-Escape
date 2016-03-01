@@ -15,6 +15,10 @@ public class CameraController : MonoBehaviour {
 	// The gem objects found in the top right of the screen
 	private GameObject[] gems;
 
+	// Win and lose screens need to follow the camera too
+	private GameObject lose;
+	private GameObject win;
+
 	// Initialize our variables
 	void Start () {
 		newPosition = transform.position;
@@ -24,6 +28,9 @@ public class CameraController : MonoBehaviour {
 		gems[1] = GameObject.FindWithTag("GreenScoredGem");
 		gems[2] = GameObject.FindWithTag("GreyScoredGem");
 		gems[3] = GameObject.FindWithTag("YellowScoredGem");
+
+		lose = GameObject.FindWithTag ("lose");
+		win = GameObject.FindWithTag ("win");
 	}
 	
 	void Update () {
@@ -39,5 +46,15 @@ public class CameraController : MonoBehaviour {
 			position.x += Time.deltaTime * speed;
 			gems[i].transform.position = position;
 		}
+
+		// lose
+		Vector3 lposition = lose.transform.position;
+		lposition.x += Time.deltaTime * speed;
+		lose.transform.position = lposition;
+
+		// win
+		lposition = win.transform.position;
+		lposition.x += Time.deltaTime * speed;
+		win.transform.position = lposition;
 	}
 }

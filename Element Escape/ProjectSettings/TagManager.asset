@@ -11,6 +11,8 @@ TagManager:
   - GreenScoredGem
   - YellowScoredGem
   - GreyScoredGem
+  - win
+  - lose
   layers:
   - Default
   - TransparentFX

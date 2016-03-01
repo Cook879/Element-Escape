@@ -18,6 +18,9 @@ public class GemController : MonoBehaviour {
 	// Reference to space monkey
 	private GameObject spaceMonkey;
 
+	// To ensure we only do the sequence once
+	private bool triggered = false;
+
 	// Initialize the gems array and space monkey
 	void Start () {
 		gems = new GameObject[4];
@@ -47,16 +50,19 @@ public class GemController : MonoBehaviour {
 	void OnTriggerEnter2D( Collider2D other ) {
 		// We only care if it collides with the monkey
 		if(other.CompareTag("Monkey")) {
-			// Run animations
-			GetComponent<Animator>().SetBool("GemHit", true);
-			GetComponent<AudioSource>().Play();
-			gems[colour].GetComponent<Animator>().SetBool("Collected", true);
+			if (!triggered) {
+				triggered = true;
+				// Run animations
+				GetComponent<Animator> ().SetBool ("GemHit", true);
+				GetComponent<AudioSource> ().Play ();
+				gems [colour].GetComponent<Animator> ().SetBool ("Collected", true);
 
-			// Store in the monkey's completion array
-			spaceMonkey.GetComponent<MonkeyController>().addGem (colour);
+				// Store in the monkey's completion array
+				spaceMonkey.GetComponent<MonkeyController> ().addGem (colour);
 
-			// Trigger the DestroyGem() method
-			StartCoroutine (DestroyGem());
+				// Trigger the DestroyGem() method
+				StartCoroutine (DestroyGem ());
+			}
 		 }		 
 	}
 

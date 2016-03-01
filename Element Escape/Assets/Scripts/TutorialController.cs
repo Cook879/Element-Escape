@@ -14,10 +14,11 @@ public class TutorialController : MonoBehaviour {
 	// Reference to space monkey
 	private MonkeyController spaceMonkey;
 
-	// For the messages to the player
+	// Mode determines what happens when
 	private int mode = 0;
 	private Rect textArea; 
 
+	// Booleans which stop things happening multiple times
 	private bool enemiesDone = false;
 	private bool startGems = true;
 	private bool anotherYellow = true;
@@ -43,12 +44,14 @@ public class TutorialController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// Mode 0 == one enemy
 		if (mode == 0) {
 			if (GameObject.FindGameObjectWithTag ("Spaceflier") == null) {
 				spaceflierCreator.SpawnEnemy ();
 			}
 		} 
 
+		// Mode 6 == one asteroid
 		if (mode == 6 && spawnAsteroid) {
 			// Spawn asteroid
 			asteroidCreator.SpawnEnemy ();
@@ -56,6 +59,7 @@ public class TutorialController : MonoBehaviour {
 			spawnAsteroid = false;
 		}
 
+		// Mode 7 == multiple enemies
 		if (mode == 7) {
 			if (GameObject.FindGameObjectWithTag ("Spaceflier") == null) {
 				spaceflierCreator.tutorial = false;
@@ -65,24 +69,29 @@ public class TutorialController : MonoBehaviour {
 				StartCoroutine (Timer10 ());
 			}
 		}
-
+			
 		if (enemiesDone) {
+			// Spawn blue gem
 			if (mode == 1 && startGems) {
 				gemCreator.SpawnGem ();
 				startGems = false;
 			}
+			// Spawn green
 			if (spaceMonkey.gemsCollected [0] == true) {
 				mode = 2;
 				gemCreator.colour = 1;
 			}
+			// Spawn yellow
 			if (spaceMonkey.gemsCollected [1] == true) {
 				mode = 3;
 				gemCreator.colour = 3;
 			}
 			if (spaceMonkey.gemsCollected [3] == true) {
+				// Spawn another yellow after they got the first
 				if (!anotherYellow) {
 					gemCreator.tutorial = false;
 					mode = 5;
+				// else spawn randomly
 				} else {
 					mode = 4;
 					StartCoroutine (Timer2 ());
@@ -91,6 +100,7 @@ public class TutorialController : MonoBehaviour {
 		}
 	}
 
+	// Timers delay actions and change important variables
 	IEnumerator Timer() {
 		yield return new WaitForSeconds(10f);
 		mode = 6;
@@ -111,6 +121,7 @@ public class TutorialController : MonoBehaviour {
 
 	// Used to tell the user they have won or lost
 	void OnGUI() { 
+		// Style to make it look (kinda) pretty
 		if( style == null ) {
 			style = new GUIStyle( GUI.skin.box );
 			style.normal.background = MakeTex(250, 25, Color.white);
@@ -128,7 +139,7 @@ public class TutorialController : MonoBehaviour {
 		} else if (mode == 4) {
 			GUI.Box (textArea, "You don't need to collect the same colour twice", style);
 		} else if (mode == 5) {
-			GUI.Box (textArea, "Mode 5", style);
+			GUI.Box (textArea, "Collect the silver gem to finish the tutorial", style);
 		} else if (mode == 6) {
 			GUI.Box (textArea, "Avoid the asteroids", style);
 		} else if (mode == 7) {
