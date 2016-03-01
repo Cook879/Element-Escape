@@ -23,6 +23,8 @@ public class TutorialController : MonoBehaviour {
 	private bool anotherYellow = true;
 	private bool spawnAsteroid = true;
 
+	private GUIStyle style = null;
+
 	// Start by spawning a gem
 	void Start () {
 		gemCreator = GetComponent<GemCreator>();
@@ -31,7 +33,7 @@ public class TutorialController : MonoBehaviour {
 		asteroidCreator = scripts [1];
 
 		spaceMonkey = GameObject.FindWithTag("Monkey").GetComponent<MonkeyController>();
-		textArea = new Rect(0,0,Screen.width, Screen.height);
+		textArea = new Rect(0,0,500,25);
 
 		if (GameObject.FindGameObjectWithTag ("Spaceflier") == null) {
 			spaceflierCreator.SpawnEnemy ();
@@ -109,22 +111,41 @@ public class TutorialController : MonoBehaviour {
 
 	// Used to tell the user they have won or lost
 	void OnGUI() { 
-		if (mode == 0) {
-			GUI.Label (textArea, "Avoid the rocket ships");
-		} else if (mode == 1) {
-			GUI.Label (textArea, "Collect the gems to win");
-		} else if (mode == 2) {
-			GUI.Label (textArea, "Collect all four coloured gems to win");
-		} else if (mode == 3) {
-			GUI.Label (textArea, "You can keep track of the gems you've collected over here ---->");
-		} else if (mode == 4) {
-			GUI.Label (textArea, "You don't need to collect the same colour twice");
-		} else if (mode == 5) {
-			GUI.Label (textArea, "Mode 5");
-		} else if (mode == 6) {
-			GUI.Label (textArea, "Avoid the asteroids");
-		} else if (mode == 7) {
-			GUI.Label (textArea, "Multiple enemies can appear at once");
+		if( style == null ) {
+			style = new GUIStyle( GUI.skin.box );
+			style.normal.background = MakeTex(250, 25, Color.white);
+			GUI.color = Color.black;
 		}
+
+		if (mode == 0) {
+			GUI.Box(textArea, "Avoid the rocket ships", style);
+		} else if (mode == 1) {
+			GUI.Box (textArea, "Collect the gems to win", style);
+		} else if (mode == 2) {
+			GUI.Box (textArea, "Collect all four coloured gems to win", style);
+		} else if (mode == 3) {
+			GUI.Box (textArea, "You can keep track of the gems you've collected over here ---->", style);
+		} else if (mode == 4) {
+			GUI.Box (textArea, "You don't need to collect the same colour twice", style);
+		} else if (mode == 5) {
+			GUI.Box (textArea, "Mode 5", style);
+		} else if (mode == 6) {
+			GUI.Box (textArea, "Avoid the asteroids", style);
+		} else if (mode == 7) {
+			GUI.Box (textArea, "Multiple enemies can appear at once", style);
+		}
+	}
+
+	private Texture2D MakeTex( int width, int height, Color col )
+	{
+		Color[] pix = new Color[width * height];
+		for( int i = 0; i < pix.Length; ++i )
+		{
+			pix[ i ] = col;
+		}
+		Texture2D result = new Texture2D( width, height );
+		result.SetPixels( pix );
+		result.Apply();
+		return result;
 	}
 }
