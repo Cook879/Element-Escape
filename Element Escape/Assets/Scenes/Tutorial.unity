@@ -92,7 +92,7 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 27542641}
+  - 224: {fileID: 27542641}
   - 114: {fileID: 27542640}
   - 114: {fileID: 27542639}
   - 114: {fileID: 27542642}
@@ -133,18 +133,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6813d9bf5a0af47d7ba4457f48a9c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &27542641
-Transform:
+--- !u!224 &27542641
+RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 27542638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.596497, y: 0.85824364, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4.596497, y: 0.85824364}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &27542642
 MonoBehaviour:
   m_ObjectHideFlags: 0
