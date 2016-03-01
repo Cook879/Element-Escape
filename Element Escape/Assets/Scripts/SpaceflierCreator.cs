@@ -11,14 +11,20 @@ public class SpaceflierCreator: MonoBehaviour {
   	
 	// Prefab of the enemy
 	public GameObject prefab;
+
+	// If in a tutorial
+	public bool tutorial = false;
  
 	// Call the spawn method on start
 	void Start () {
-		Invoke("SpawnEnemy",minSpawnTime);
-  	}
+		// Don't auto spawn on tutorials
+		if (!tutorial) {
+			Invoke ("SpawnEnemy", minSpawnTime);
+		}
+	}
  
 	// Spawns a new enemy
-	void SpawnEnemy() {
+	public void SpawnEnemy() {
         // Get variables needed for our position calculations
 	    Camera camera = Camera.main;
 	    Vector3 cameraPos = camera.transform.position;
@@ -35,7 +41,10 @@ public class SpaceflierCreator: MonoBehaviour {
 	    // Spawn the enemy on the screen
 	    Instantiate(prefab, pos, Quaternion.Euler(0,180,0));
 
-		// Call the method again
-	    Invoke("SpawnEnemy", Random.Range(minSpawnTime, maxSpawnTime));
+		// Don't auto spawn on tutorials
+		if (!tutorial) {
+			// Call the method again
+			Invoke ("SpawnEnemy", Random.Range (minSpawnTime, maxSpawnTime));
+		}
   	}
 }

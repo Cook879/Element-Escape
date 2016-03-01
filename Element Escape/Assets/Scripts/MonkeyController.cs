@@ -20,7 +20,7 @@ public class MonkeyController : MonoBehaviour {
 	public bool gameOver = false;
 
 	// The gems that have been collected
-	private bool[] gemsCollected = new bool[4];
+	public bool[] gemsCollected = new bool[4];
 
 	// Initilize private variables
 	void Start () {

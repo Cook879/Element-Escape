@@ -5,16 +5,19 @@
  */
 public class GemCreator: MonoBehaviour {
   
-	// Spawn time should be slightly random
-  	public float minSpawnTime = 0.75f; 
-  	public float maxSpawnTime = 2f; 
-
 	// Prefabs of the gems
   	public GameObject[] prefabs;
- 
+
+	// If in a tutorial
+	public bool tutorial = false;
+	// If in tutorial, we control the colour
+	public int colour = 0;
+
 	// Call the spawn method
 	void Start () {
-		Invoke("SpawnGem",minSpawnTime);
+		if (!tutorial) {
+			Invoke ("SpawnGem", 0);
+		}
 	}
  
 	// Spawns a new gem
@@ -27,8 +30,13 @@ public class GemCreator: MonoBehaviour {
 	    float yMax = camera.orthographicSize - 0.5f;
 	     
 
-	    // Get a random number for the gem colour
-	    int index = Random.Range(0,4);
+		// Get a random number for the gem colour (except in tutorial)
+		int index;
+		if (tutorial) {
+			index = colour;
+		} else {
+			index = Random.Range (0, 4);
+		}
 
 		// Calculate new position with randomnicity
 	    Vector3 pos = 

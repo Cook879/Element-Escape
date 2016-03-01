@@ -52,7 +52,7 @@ public class GemController : MonoBehaviour {
 			gems[colour].GetComponent<Animator>().SetBool("Collected", true);
 
 			// Store in the monkey's completion array
-			spaceMonkey.GetComponent<MonkeyController> ().addGem (colour);
+			spaceMonkey.GetComponent<MonkeyController>().addGem (colour);
 
 			// Trigger the DestroyGem() method
 			StartCoroutine (DestroyGem());
