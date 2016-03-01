@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Controller for the enemies
+ */
 public class SpaceflierController : MonoBehaviour {
 
-	// Use this for initialization
+	// Speed of the enemy
 	public float speed = -1;
-	private Transform spawnPoint;
+
+	// Make the spaceship move accross the screen
 	void Start () {
 		GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
-		spawnPoint = GameObject.Find("SpawnPoint").transform;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	// Destroy the spaceship when it goes off screen
 	void OnBecameInvisible() {
 	  Destroy( gameObject ); 
 	}

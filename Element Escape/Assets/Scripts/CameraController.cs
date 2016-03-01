@@ -1,14 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Moves the camera along the scene
+ */
 public class CameraController : MonoBehaviour {
-	public float speed = 1f;
-	private Vector3 newPosition;
-	public GameObject[] gems;
-	// Use this for initialization
 
+	// Speed of the camera
+	public float speed = 1f;
+
+	// Position we calculate for the camera
+	private Vector3 newPosition;
+
+	// The gem objects found in the top right of the screen
+	private GameObject[] gems;
+
+	// Initialize our variables
 	void Start () {
 		newPosition = transform.position;
+
 		gems = new GameObject[4];
 		gems[0] = GameObject.FindWithTag("BlueScoredGem");
 		gems[1] = GameObject.FindWithTag("GreenScoredGem");
@@ -16,11 +26,15 @@ public class CameraController : MonoBehaviour {
 		gems[3] = GameObject.FindWithTag("YellowScoredGem");
 	}
 	
-	// Update is called once per frame
 	void Update () {
+		// Calculate our new position
 		newPosition.x += Time.deltaTime * speed;
+
+		// Move the camera here
 		transform.position = newPosition;
-		for(int i = 0; i<gems.Length;i++){
+
+		// Move each of the gems in the corner accordingly
+		for(int i = 0; i<gems.Length; i++ ){
 			Vector3 position = gems[i].transform.position;
 			position.x += Time.deltaTime * speed;
 			gems[i].transform.position = position;
