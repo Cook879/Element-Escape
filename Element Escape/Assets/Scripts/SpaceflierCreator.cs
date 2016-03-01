@@ -29,7 +29,6 @@ public class SpaceflierCreator: MonoBehaviour {
 	    Camera camera = Camera.main;
 	    Vector3 cameraPos = camera.transform.position;
 	    float xMax = camera.aspect * camera.orthographicSize;
-	    float xRange = camera.aspect * camera.orthographicSize * 1.75f;
 	    float yMax = camera.orthographicSize - 0.5f;
 	     
 		// Calculate a new (random) position
