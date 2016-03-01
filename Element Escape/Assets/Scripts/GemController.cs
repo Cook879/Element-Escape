@@ -49,6 +49,7 @@ public class GemController : MonoBehaviour {
 		if(other.CompareTag("Monkey")) {
 			// Run animations
 			GetComponent<Animator>().SetBool("GemHit", true);
+			GetComponent<AudioSource>().Play();
 			gems[colour].GetComponent<Animator>().SetBool("Collected", true);
 
 			// Store in the monkey's completion array

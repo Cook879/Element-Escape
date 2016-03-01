@@ -238,6 +238,7 @@ GameObject:
   - 95: {fileID: 460441089}
   - 50: {fileID: 460441090}
   - 60: {fileID: 460441091}
+  - 82: {fileID: 460441092}
   m_Layer: 0
   m_Name: spacemonkey_fly01
   m_TagString: Monkey
@@ -301,6 +302,7 @@ MonoBehaviour:
   moveSpeed: 5
   turnSpeed: 9
   gameOver: 0
+  gemsCollected: 00000000
 --- !u!95 &460441089
 Animator:
   serializedVersion: 3
@@ -380,6 +382,80 @@ PolygonCollider2D:
       - {x: -0.06, y: -0.69}
       - {x: 0.089999996, y: -0.71}
       - {x: 0.17, y: -0.78}
+--- !u!82 &460441092
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 460441085}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d980f3c1eb85d4b2db2ec13df3247efa, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &571034537
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +486,7 @@ MonoBehaviour:
   minSpawnTime: 0.75
   maxSpawnTime: 2
   prefab: {fileID: 152938, guid: 52ec7f5ee00f34882826f60f1f1f17ba, type: 2}
+  tutorial: 0
 --- !u!4 &571034539
 Transform:
   m_ObjectHideFlags: 0
@@ -567,13 +644,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b205e43e263e439fa4f64f8b503c423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnTime: 0.75
-  maxSpawnTime: 2
   prefabs:
   - {fileID: 165536, guid: d3898b5e285884d84b36cb46d6b1b9b8, type: 2}
   - {fileID: 148948, guid: c0cef5f02f05545388df74a40ce15505, type: 2}
   - {fileID: 114170, guid: e541d113fef064797a398e57b0976ca0, type: 2}
   - {fileID: 163428, guid: c80eed35067574398a2d4633da5575c3, type: 2}
+  tutorial: 0
+  colour: 0
 --- !u!4 &927966659
 Transform:
   m_ObjectHideFlags: 0
@@ -1020,6 +1097,7 @@ MonoBehaviour:
   minSpawnTime: 10
   maxSpawnTime: 20
   prefab: {fileID: 150554, guid: 509c59384fc5f4c9aa809d025035c9e4, type: 2}
+  tutorial: 0
 --- !u!4 &1915727140
 Transform:
   m_ObjectHideFlags: 0

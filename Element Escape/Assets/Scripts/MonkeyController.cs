@@ -64,7 +64,7 @@ public class MonkeyController : MonoBehaviour {
 			gameOver = true;
 			// Do an animation
 			GetComponent<Animator> ().SetBool ("MonkeyHit", true);
-			GetComponent<Animator> ().SetBool ("MonkeyHit", true);
+			GetComponent<AudioSource>().Play();
 			// Restart the level
 			StartCoroutine (RestartLevel ());
 		}  
