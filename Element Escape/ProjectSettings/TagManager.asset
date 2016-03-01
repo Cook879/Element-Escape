@@ -63,3 +63,6 @@ TagManager:
   - name: ScoredGems
     uniqueID: 2640358965
     locked: 0
+  - name: win lose
+    uniqueID: 2196582703
+    locked: 0

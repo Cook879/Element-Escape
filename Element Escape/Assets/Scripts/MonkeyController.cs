@@ -64,6 +64,7 @@ public class MonkeyController : MonoBehaviour {
 			gameOver = true;
 			// Do an animation
 			GetComponent<Animator> ().SetBool ("MonkeyHit", true);
+			GetComponent<Animator> ().SetBool ("MonkeyHit", true);
 			// Restart the level
 			StartCoroutine (RestartLevel ());
 		}  
@@ -73,7 +74,7 @@ public class MonkeyController : MonoBehaviour {
 	// Used to tell the user they have won or lost
 	void OnGUI() { 
 		if (gameOver) {
-			GUI.Label (textArea, "GAME OVER");
+			StartCoroutine (RestartLevel());
 		} else if (gemsCollected[0] && gemsCollected[1] && gemsCollected[2] && gemsCollected[3] ) {
 			GUI.Label (textArea, "WINNER");
 			StartCoroutine (NextLevel());
