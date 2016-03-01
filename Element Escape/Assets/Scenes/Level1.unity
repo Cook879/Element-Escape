@@ -169,8 +169,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1167069329}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &174259720
@@ -185,7 +184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  gems: []
 --- !u!1 &326584649
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +301,6 @@ MonoBehaviour:
   moveSpeed: 5
   turnSpeed: 9
   gameOver: 0
-  gemsCollected: 00000000
 --- !u!95 &460441089
 Animator:
   serializedVersion: 3
@@ -412,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnTime: 0.75
   maxSpawnTime: 2
-  catPrefab: {fileID: 152938, guid: 52ec7f5ee00f34882826f60f1f1f17ba, type: 2}
+  prefab: {fileID: 152938, guid: 52ec7f5ee00f34882826f60f1f1f17ba, type: 2}
 --- !u!4 &571034539
 Transform:
   m_ObjectHideFlags: 0
@@ -741,48 +738,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &1167069328
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1167069329}
-  - 114: {fileID: 1167069330}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1167069329
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1167069328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 174259719}
-  m_RootOrder: 0
---- !u!114 &1167069330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1167069328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eebcf71cfe2cc423d9c4b9f180bf005f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenEdge: 1
-  yOffset: 0
-  xOffset: 0
 --- !u!1 &1310042752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnTime: 10
   maxSpawnTime: 20
-  catPrefab: {fileID: 150554, guid: 509c59384fc5f4c9aa809d025035c9e4, type: 2}
+  prefab: {fileID: 150554, guid: 509c59384fc5f4c9aa809d025035c9e4, type: 2}
 --- !u!4 &1915727140
 Transform:
   m_ObjectHideFlags: 0

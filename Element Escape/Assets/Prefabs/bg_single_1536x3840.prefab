@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 426592}
   - 212: {fileID: 21212550}
-  - 114: {fileID: 11400346}
+  - 114: {fileID: 11498782}
   m_Layer: 0
   m_Name: bg_single_1536x3840
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11400346
+--- !u!114 &11498782
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -37,7 +37,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 136274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9136c281c2ac042e7a9e7a03352bfad3, type: 3}
+  m_Script: {fileID: 11500000, guid: 72d5cac3f9a1647e4aa5324f61a740a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21212550

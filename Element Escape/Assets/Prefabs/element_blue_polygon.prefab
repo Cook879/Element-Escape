@@ -85,7 +85,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colour: 0
-  gems: []
 --- !u!212 &21214868
 SpriteRenderer:
   m_ObjectHideFlags: 1
